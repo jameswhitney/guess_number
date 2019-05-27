@@ -15,12 +15,12 @@ class GuessingGame():
     # Create an __init__ method which will generate a random number upon instantiation of class
     def __init__(self):
         self.rand_num = random.randint(0, 10)
-        print(self.rand_num)
+        print('\nInitial random number = {}'.format(self.rand_num))
 
     # Create class method to reset the __init__ method's random number with a new random number
     def reset_num(self):
-        self.rand_num = random.randin(0, 10)
-        print(self.rand_num)
+        self.rand_num = random.randint(0, 10)
+        print('\nNew number after reset = {}\n'.format(self.rand_num))
 
     # Create a class method that takes user input and compares it to the randomly generated number.
     # If the number entered does not equal the random number, ask user to input another number,
@@ -34,11 +34,11 @@ class GuessingGame():
                 user_guess = int(input('Please enter a number between 0 and 10: '))
 
             except ValueError:
-                print('Please enter whole numbers only. Please try again.')
+                print('\nPlease enter whole numbers only. Please try again.\n')
                 continue
             
             if user_guess == self.rand_num:
-                print('Huzzah {} is the magic number'.format(self.rand_num))
+                print('\nHuzzah {} is the magic number'.format(self.rand_num))
                 break
 
             elif user_guess < self.rand_num:
@@ -46,7 +46,7 @@ class GuessingGame():
                 continue
 
             else:
-                print('Sorry you guessed incorrectly, try a lower number\n')
+                print('\nSorry you guessed incorrectly, try a lower number\n')
                 continue
             
 
@@ -54,7 +54,9 @@ class GuessingGame():
 # Create simple test function for the GuessingGame class
 
 def test():
-    pass
+    g = GuessingGame()
+    g.reset_num()
+    g.guess()
 
-
+test()
 
